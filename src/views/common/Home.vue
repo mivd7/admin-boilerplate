@@ -4,7 +4,8 @@
       <v-flex>
         <v-card>
           <div class="text-content">
-            <h1>Hi {{ userInfo.name }}!</h1>
+            <h1 v-if="userInfo">Hi {{ userInfo.name }}!</h1>
+            <h1 v-else>Hi, what's your name!?</h1>
           </div>
           <v-btn @click="logout">Logout</v-btn>
         </v-card>
@@ -28,7 +29,9 @@ export default {
     }
   },
   created() {
-    this.userInfo = this.$keycloak.tokenParsed;
+    if(this.$keycloak) {
+      this.userInfo = this.$keycloak.tokenParsed;
+    }
   },
 };
 </script>

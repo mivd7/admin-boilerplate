@@ -16,7 +16,7 @@
         </v-card-title>
         <v-spacer></v-spacer>
         <v-card-title class="yellow--text pl-5 pt-5">
-          <div class="display-1 pl-5 pt-5">{{ userInfo.name }}</div>
+          <div v-if="userInfo" class="display-1 pl-5 pt-5">{{ userInfo.name }}</div>
         </v-card-title>
       </v-layout>
     </v-img>
@@ -39,7 +39,7 @@
           <v-icon color="indigo">mail</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          <v-list-tile-title>{{ userInfo.email }}</v-list-tile-title>
+          <v-list-tile-title v-if="userInfo">{{ userInfo.email }}</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
       <v-divider inset></v-divider>

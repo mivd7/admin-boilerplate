@@ -29,7 +29,8 @@
       </v-btn>
       <notification-list></notification-list>
     </v-menu> -->
-    <p style="margin-top: 15px;">{{ userInfo.name }}</p>
+    <p v-if="userInfo" style="margin-top: 15px;">{{ userInfo.name }}</p>
+    <p v-else style="margin-top: 15px;">Anonymous</p>
     <v-menu
       offset-y
       origin="center center"
@@ -75,7 +76,9 @@ export default {
     // NotificationList
   },
   created() {
-    this.userInfo = this.$keycloak.tokenParsed;
+    if(this.$keycloak) {
+      this.userInfo = this.$keycloak.tokenParsed;
+    }
   },
   data: () => ({
     items: [
