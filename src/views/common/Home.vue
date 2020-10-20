@@ -5,7 +5,7 @@
         <v-card>
           <div class="text-content">
             <h1 v-if="userInfo">Hi {{ userInfo.name }}!</h1>
-            <h1 v-else>Hi, what's your name!?</h1>
+            <p v-else>If a user was logged in you could see the user info here</p>
           </div>
           <v-btn @click="logout">Logout</v-btn>
         </v-card>
